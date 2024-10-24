@@ -1,8 +1,11 @@
-package com.javaacademy.calc;
+package com.javaacademy.unit.calc;
 
+import com.javaacademy.calc.Calc;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 
 @DisplayName("Тестирование калькулятора")
 public class CalcTest {
@@ -50,5 +53,15 @@ public class CalcTest {
         if (result != 9) {
             throw new RuntimeException("Ожидалось 9, а результат: " + result);
         }
+    }
+
+    @ParameterizedTest
+    @CsvFileSource(resources = "/calc_test.csv", delimiter = ';', numLinesToSkip = 1)
+    public void multiplyFromCsvSuccess(Integer number1, Integer number2, Integer expected) {
+        System.out.printf("number1: %s, number2: %s, expected: %s \n", number1, number2, expected);
+        Calc calc = new Calc();
+        int result = calc.multiply(number1, number2);
+
+        Assertions.assertEquals(expected, result);
     }
 }

@@ -1,8 +1,9 @@
-package com.javaacademy.calc;
+package com.javaacademy.it;
 
+import com.javaacademy.calc.Calc;
+import com.javaacademy.calc.Computer;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -11,7 +12,7 @@ import java.security.InvalidParameterException;
 import static com.javaacademy.calc.SquareType.*;
 
 @DisplayName("Тестируем компьютер")
-public class ComputerTest {
+public class ComputerIT {
     private static double resultTest;
 
     @BeforeEach
